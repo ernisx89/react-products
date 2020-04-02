@@ -14,6 +14,7 @@ class ListProducts extends Component {
     this.onAdd = this.onAdd.bind(this)
     this.onDelete = this.onDelete.bind(this)
     this.onEditSubmit = this.onEditSubmit.bind(this)
+    this.onView = this.onView.bind(this)
   }
   componentDidMount(){
     const products = this.getProduct()
@@ -42,17 +43,26 @@ class ListProducts extends Component {
     //match the name of poduct to delete
     this.setState({products: filteredProduct})
   }
-  onEditSubmit(name, ean, type, weight, color){
+  onEditSubmit(name, ean, type, weight, color, originalName){ //originalName - for no duplicate 
     let products = this.getProduct()
     products = products.map(product => {
+      if(product.name === originalName){
         product.name = name
         product.ean = ean
         product.type = type
         product.weight = weight
         product.color = color 
-        return product
+      }
+      return product
     })
     this.setState({products})
+  }
+  onView(ean){
+    const products = this.getProduct()
+    const filteredProduct = products.filter(product => {
+      return product.ean === ean 
+    })
+    console.log(filteredProduct)
   }
   render() {
     return (
@@ -64,6 +74,7 @@ class ListProducts extends Component {
             <ProductItem
               key={product.name}
               {...product}
+              onView={this.onView}
               onDelete={this.onDelete}
               onEditSubmit={this.onEditSubmit}
             />

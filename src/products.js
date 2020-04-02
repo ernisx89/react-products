@@ -3,22 +3,19 @@ const Items = [{
   ean: 1234567,
   type: 'cell',
   weight: 200,
-  color: 'white',
-  active: false
+  color: 'white'
 }, {
   name: 'Samsung',
   ean: 1234567,
   type: 'notebook',
   weight: 300,
-  color: 'black',
-  active: false
+  color: 'black'
 }, {
   name: 'Xiaomi',
   ean: 1234567,
   type: 'cell',
   weight: 250,
-  color: 'yellow',
-  active: false
+  color: 'yellow'
 }]
 
 export default Items
