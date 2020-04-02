@@ -68,23 +68,27 @@ class ProductItem extends Component {
             </div>
           ): (
            <div>  
-           <table style={{color: "black", border: "green solid 1px", background: "#e6e6ff" }}>
-             <tr key={name}>
-               <th scope="col">Name</th>
-               <th scope="col">EAN</th>
-               <th scope="col">Type</th>
-               <th scope="col">Weight</th>
-               <th scope="col">Color</th>
-             </tr>
-             <tr >
-               <td>{name}</td>
-               <td>{ean}</td>
-               <td>{type}</td>
-               <td>{weight}</td>
-               <td>{color}</td>
-               <button onClick={this.onEdit} style={{background: "blue", color: "white"}}>Edit</button>
-               <button onClick={this.onDelete} style={{background: "red", color: "white"}}>Delete</button>
-             </tr>
+           <table key={name} style={{color: "black", border: "green solid 1px", background: "#e6e6ff" }}>
+             <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">EAN</th>
+                <th scope="col">Type</th>
+                <th scope="col">Weight</th>
+                <th scope="col">Color</th>
+              </tr>
+             </thead>
+             <tbody>
+              <tr >
+                <td>{name}</td>
+                <td>{ean}</td>
+                <td>{type}</td>
+                <td>{weight}</td>
+                <td>{color}</td>
+                <td><button onClick={this.onEdit} style={{background: "blue", color: "white"}}>Edit</button></td>
+                <td><button onClick={this.onDelete} style={{background: "red", color: "white"}}>Delete</button></td>
+              </tr>
+             </tbody>
             </table>
            </div> 
           )}
